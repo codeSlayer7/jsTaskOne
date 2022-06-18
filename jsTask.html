@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="width:100%;">
+<canvas id="canvas-smile" style=" border:1px solid black;
+width: 100%;
+height: 100%;
+background-color: yellow;"></canvas>
+
+</div>
+
+
+ <ol id="todo-list"> </ol>
+
+
+
+    <article>
+    <h3>What is Lorem Ipsum?</h3>
+    <p class="la">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+    <h3>Where does it come from?</h3>
+    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. from "The Extremes of Good and Evil" by Cicero</p>
+    <h3>Why do we use it?</h3>
+    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+    </article> 
+
+  
+     <div id="cart-items">
+        <div class="item">Milk 1 l.<span class="qty">x 2</span></div>
+        <div class="item">Cola 1.5 l. <span class="qty">x 1</span></div>
+        <div class="item">Bread <span class="qty">x 2</span></div>
+        <div class="item">Cheese <span class="qty">x 1</span></div>
+        <div class="item">Chocolate bar <span class="qty">x 3</span></div>
+    </div>
+
+
+
+    <ul></ul>
+
+    <script>
+          var canvas = document.getElementById('canvas-smile');
+      var context = canvas.getContext('2d');
+
+      //smiley
+      context.fillStyle = 'LawnGreen';
+      context.strokeStyle = 'black';
+      context.lineWidth = 2;
+      context.beginPath();
+      context.arc(95, 85, 40, 0, 2*Math.PI);
+      context.fill();
+      context.stroke();
+      context.closePath();
+
+      //eyes
+      context.fillStyle = 'cyan';
+      context.beginPath();
+      context.arc(75, 75, 5, 0, 2*Math.PI);
+      context.fill();
+      context.stroke();
+      context.closePath();
+
+      context.beginPath();
+      context.arc(114, 75, 5, 0, 2*Math.PI);
+      context.fill();
+      context.stroke();
+      context.closePath();
+
+      //mouth
+      context.beginPath();
+      context.arc(95, 95, 17, Math.PI , 2*Math.PI,true);
+      context.closePath();
+      context.fill();
+
+            for (var i = 0; i < 10; i++) {
+          setTimeout(function() {
+            console.log(i);
+          })
+        };
+
+        // Во первых setTimeout написан без закрытой скобки, консоль выведит 10, без промежуточных интервалов так как это функция.
+
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        function displayDay(){
+          let a = new Date();
+            return `Today is: ${days[a.getDay()]}
+      Current time is: ${ a<12? a.getHours()+ "AM":a.getHours()+"PM" }:${a.getMinutes()}:${a.getSeconds()}`
+        }
+        console.log(displayDay())
+
+        // Я от себя в шоке как сделал
+
+       let x = 32243;
+
+       let a = String(x);
+       console.log(typeof(a));
+
+       let result1 = a.split('').reverse().join('');
+       console.log(Number(result1))
+       // на кодварсе полно таких задач
+
+       function fact(x) {
+        if (x === 0)
+       {
+          return 1;
+       }
+        return x * fact(x-1);
+
+      }
+
+      console.log(fact(9));
+
+     
+
+      
+
+      let  num1;
+      let  num2;
+      num1 = window.prompt("напиши число", "сюда");
+      num2 = window.prompt("второй раз", "сюда");
+
+      if(parseInt(num1, 10) > parseInt(num2, 10))
+        {
+        console.log(`${num1} больше чем ${num2}`);
+        }
+      else
+        if(parseInt(num2, 10) > parseInt(num1, 10))
+        {
+        console.log(`${num2} больше чем ${num1}`);
+        }
+      else
+        {
+         console.log(`${num1} равны ${num2}`);
+        }
+
+      // //   Write a simple JavaScript program to join all elements of the following array into a string.
+      // // Sample array: myColor = ["Red", "Green", "White", "Black"];
+      // // Expected Output :
+      // // "Red,Green,White,Black"
+      // // "Red+Green+White+Black"
+
+      let myColor = ["Red", "Green", "White", "Black"];
+
+      function connect(...arr){
+       return arr.join("")
+      }
+      console.log(connect(myColor))
+
+      function connect1(...arr){
+        let a = arr.map(el =>  el+"+"  )
+        return a.join('')
+       }
+       console.log(connect1(...myColor))
+
+       function month_name(a){
+       month = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] ;
+       return month[a.getMonth()]
+       }
+
+      console.log(month_name(new Date("5/13/2009")));
+      console.log(month_name(new Date("6/5/2014")));
+
+      //Write a JavaScript program to test the first character of a string is uppercase or not
+      function test(string){
+        if(string[0].toUpperCase()===string[0]){
+          return 'yes'
+        }else{
+          return 'no '
+        }
+      }
+
+      console.log(test('bakyt'))
+
+      const tasks = ['Buy lemonade', 'Make toasts', 'Repair car', 'Play games', 'Pet a cat'];
+
+      let list = document.getElementById('todo-list');
+
+          for(let i=0;i<tasks.length;i++){
+              list.innerHTML+= `<li class"task"> ${tasks[i]} </li>`
+         }  ;
+
+        let elem = document.querySelector('p')
+
+       elem.forEach(el => { el.insertAdjacentHTML('afterend', '<hr/>')
+       });
+
+       let prnt= document.querySelectorAll('#cart-items')
+       let divNodes = document.querySelectorAll('.item');
+      //  let  spanNodes = document.querySelectorAll('.qty');
+
+        divNodes[1].remove()
+
+        let newChild = document.createElement('div');
+        newChild.classList.add('item');
+        newChild.textContent = "Canned Fish "
+
+        let newqnty= document.createElement('span')
+        newqnty.classList.add('qty');
+        newqnty.textContent = "4"
+        newChild.appendChild(newqnty)
+
+        newChild.innerHTML = 'Canned Fish <span class="qty">x 4</span>'
+
+        let divChild = prnt.childNodes[8];
+        let span= divNodes.firstElementChild;
+        divNodes[4].parentNode.replaceChild(newChild, divNodes[4])
+
+      console.log(divNodes)
+
+       let newqnty= document.createElement('span')
+       newChild.classList.add('qty');
+       newChild.textContent = "4"
+
+       console.log(divNodes)
+      prnt.replaceChild(newChild, divChild);
+      divNodes.replaceChild(newqnty, span);
+    
+
+        function test() {
+          let resArr = [];
+          let condition = true;
+          while(condition) {
+            let res = prompt("Write something: ");
+            console.log(res);
+            if(res =='' || res == null) {   // res !== Null
+              // resArr.push(res);
+               condition = false;
+            }else {
+              // condition = false;
+              resArr.push(res);
+            }
+          }
+          // console.log(resArr);
+          return resArr;
+        }
+
+        let result = test();
+        console.log(result)
+      // });
+
+         let ul = document.querySelector("ul")
+        for(let i =0; i<result.length; i++){
+          let li = document.createElement("li");
+         li.innerHTML = `${result[i]}`;
+        ul.appendChild(li);
+        }
+
+
+
+
+
+    </script>
+  </body>
+</html>
